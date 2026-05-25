@@ -1,0 +1,43 @@
+name: Publish to npm
+
+# Tag-triggered publish to npm for @scoova/routing using npm's
+# trusted-publisher (OIDC) flow — no NPM_TOKEN secret required.
+#
+# One-time setup at:
+#   https://www.npmjs.com/package/@scoova/routing/access
+#     → Trusted publishers → Add GitHub Actions
+#         repo:        Scoova/scoova-routing-web
+#         workflow:    .github/workflows/publish.yml
+#         environment: (blank)
+#
+# With id-token:write granted, `npm publish --provenance` auto-detects
+# the OIDC token via ACTIONS_ID_TOKEN_REQUEST_* and ships a signed SLSA
+# attestation linking the publish to this commit + workflow run.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    name: npm publish @scoova/routing
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Install
+        run: npm install
+      - name: Build
+        # Web package ships compiled JS — `main` points at dist/index.js
+        # so tsc must run before publish or the published tarball has a
+        # broken entry point.
+        run: npm run build
+      - name: Publish
+        run: npm publish --access public --provenance
