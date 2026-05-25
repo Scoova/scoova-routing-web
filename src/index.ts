@@ -1,5 +1,6 @@
 /**
- * @scoova/routing — Valhalla wrapper for `routing.scoo-va.info`.
+ * @scoova/routing — Valhalla wrapper for the Scoova routing gateway
+ * (`api.scoo-va.info/api/v1/routing`).
  *
  * Eight endpoints: route, optimizedRoute, isochrone, matrix, height
  * (alias `elevation`), mapMatch, locate, status. Plus polyline6 decoding so
@@ -153,7 +154,7 @@ export class RoutingError extends Error {
   }
 }
 
-const DEFAULT_BASE = 'https://routing.scoo-va.info';
+const DEFAULT_BASE = 'https://api.scoo-va.info/api/v1/routing';
 const DEFAULT_LOCALE = 'en';
 
 export interface ClientOptions {
@@ -171,8 +172,8 @@ export interface ClientOptions {
    */
   locale?: string;
   /** Optional gateway API key. Sent as the `X-API-Key` header on every
-   *  request when set. Required when hitting `api.scoo-va.info/v1/routing/*`
-   *  through the gateway; ignored by the raw `routing.scoo-va.info` host. */
+   *  request when set. Required by the central gateway at
+   *  `api.scoo-va.info/api/v1/routing/*` (the default `baseUrl`). */
   apiKey?: string;
 }
 
