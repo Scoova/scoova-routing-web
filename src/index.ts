@@ -1,5 +1,5 @@
 /**
- * @scoova/routing — Valhalla wrapper for the Scoova routing gateway
+ * @scoova/routing — Client for the Scoova routing gateway
  * (`api.scoo-va.info/api/v1/routing`).
  *
  * Eight endpoints: route, optimizedRoute, isochrone, matrix, height
@@ -290,7 +290,7 @@ export class RoutingClient {
   }
 }
 
-/** Decode a Valhalla polyline6 string into `{lat, lon}` points. */
+/** Decode a polyline (precision 6, Google-format) string into `{lat, lon}` points. */
 export function decodePolyline(encoded: string, precision = 6): LatLng[] {
   const coords: LatLng[] = [];
   const factor = 10 ** precision;

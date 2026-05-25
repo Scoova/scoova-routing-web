@@ -1,6 +1,6 @@
 # @scoova/routing
 
-Standalone Valhalla routing client for `routing.scoo-va.info`.
+Routing client for `routing.scoo-va.info`.
 
 ```sh
 npm install @scoova/routing

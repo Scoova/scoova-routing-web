@@ -169,7 +169,7 @@ describe('RoutingClient errors', () => {
 });
 
 describe('decodePolyline', () => {
-  it('decodes the canonical Valhalla fixture', () => {
+  it('decodes the canonical the Scoova routing engine fixture', () => {
     const coords = decodePolyline('_p~iF~ps|U_ulLnnqC_mqNvxq`@');
     expect(coords).toHaveLength(3);
   });

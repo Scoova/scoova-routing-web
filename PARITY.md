@@ -1,6 +1,6 @@
 # @scoova/routing — Cross-platform Parity
 
-Five standalone SDKs, one API surface. All target the Valhalla-compatible
+Five standalone SDKs, one API surface. All target the the Scoova routing engine-compatible
 endpoints at `routing.scoo-va.info`. Mirrors the routing client embedded inside
 `@scoova/navigation` and the mobile nav SDKs, but with no dependencies on
 voice/audio engines so apps that just need a route stay lean.

@@ -1,7 +1,7 @@
 {
   "name": "@scoova/routing",
-  "version": "1.1.2",
-  "description": "Standalone Valhalla routing client for the Scoova routing gateway (api.scoo-va.info/api/v1/routing) \u2014 route, optimizedRoute, isochrone, matrix, height (elevation), mapMatch, locate, status. Polyline6 decode included.",
+  "version": "1.1.3",
+  "description": "Routing client for the Scoova routing gateway (api.scoo-va.info/api/v1/routing) \u2014 route, optimizedRoute, isochrone, matrix, height (elevation), mapMatch, locate, status. Polyline6 decode included.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -24,7 +24,7 @@
   "keywords": [
     "scoova",
     "routing",
-    "valhalla",
+    "the Scoova routing engine",
     "directions",
     "isochrone",
     "matrix",
